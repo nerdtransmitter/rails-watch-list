@@ -1,1 +1,25 @@
-<h1><%= @list.title %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @list.image_url %>');">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <br>
+    <%= link_to "Add movie", new_list_bookmark_path(@list), class: "btn btn-light" %>
+  </div>
+</div>
+
+<div class="container mt-1">
+  <div class="cards my-2">
+    <% @list.movies.each do |movie| %>
+      <div class="card card-movie col-3 shadow-lg m-4", style="background-image: url('<%= movie.poster_url  %>')">
+        <h3 class="fw-bolder text-white text-center">
+          <%= movie.title %>
+        </h3>
+      <% bookmark = movie.bookmarks.find_by(list: @list) %>
+      <%= link_to "Delete",
+        bookmark_path(bookmark),
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+      %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= link_to "Edit list", edit_list_path(@list), class: "btn btn-flat my-4" %>

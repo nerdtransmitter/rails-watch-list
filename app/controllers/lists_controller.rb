@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @movies = Movie.all
   end
 
   def new
@@ -13,9 +14,12 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(restaurant_params)
-    @list.save
-    redirect_to list_path(@list)
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -29,7 +33,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:Lists).permit(:title, :overview, :rating, :poster_url)
+    params.require(:list).permit(:name, :image_url)
   end
 
   def set_list

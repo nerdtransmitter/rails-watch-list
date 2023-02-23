@@ -1,0 +1,42 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+// .banner-carousel {
+//   height: 400px;
+// }
+
+.carousel-image {
+  height: 400px;
+  background-size: cover;
+  // background-position: ;
+}
+
+// .banner-lists {
+//   height: 100px !important;
+// }
+
+// .carousel {
+//   height: 300px !important; /* adjust this value to the desired height */
+// }
+
+// .carousel-item {
+//   height: 100% !important;
+// }
