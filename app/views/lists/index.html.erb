@@ -1,11 +1,13 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% @movies = Movie.all %>
+    <% i = 1 %>
     <% @movies.each do |movie| %>
-        <div class="carousel-item carousel-image active">
+        <div class="carousel-item carousel-image <%= i == 1 ? "active" : "" %>">
           <div class="d-block w-100 carousel-image" style="background-image: url('<%= movie.poster_url %>')"></div>
           <%# <img class="d-block w-100 carousel-image" src="<%= movie.poster_url %>">
         </div>
+        <% i += 1 %>
     <% end %>
   </div>
 
